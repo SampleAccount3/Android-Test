@@ -110,46 +110,47 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/layoutSharedPref"
         android:layout_width="wrap_content"
-        android:layout_below="@id/layoutExplicit"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_below="@id/layoutExplicit"
         android:layout_centerHorizontal="true"
-        android:id="@+id/layoutSharedPref">
+        android:layout_marginTop="24dp">
 
         <EditText
-            android:layout_centerHorizontal="true"
             android:id="@+id/edSharedpref1"
             android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:hint="Value A"
-            android:layout_height="wrap_content"/>
+            android:hint="Value A" />
 
         <EditText
-            android:layout_centerHorizontal="true"
             android:id="@+id/edSharedpref2"
-            android:layout_below="@id/edSharedpref1"
             android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edSharedpref1"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:hint="Value B"
-            android:layout_height="wrap_content"/>
+            android:hint="Value B" />
 
         <Button
             android:id="@+id/btnSharedPrefSave"
             android:layout_width="128dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/edSharedpref2"
-            android:text="Save"
-            android:layout_marginTop="12dp"
             android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="12dp"
+            android:text="Save" />
+
         <Button
             android:id="@+id/btnNxtPage"
             android:layout_width="128dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/btnSharedPrefSave"
-            android:text="Next Page"
-            android:layout_marginTop="12dp"
             android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="12dp"
+            android:text="Next Page" />
 
     </RelativeLayout>
 
