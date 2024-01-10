@@ -25,12 +25,6 @@ public class Activity2 extends AppCompatActivity {
 
         Toast.makeText(this,"Value A: " + valueA +"\n" + "Value B: " + valueB ,Toast.LENGTH_SHORT).show();
 
-
-
-
-
-
-
     }
 
 }

@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvSample"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
@@ -50,7 +50,7 @@
 
         <EditText
             android:id="@+id/edSearch"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnImplicit"
             android:layout_marginTop="20dp"
@@ -79,6 +79,7 @@
             android:id="@+id/tvExplicit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:text="Explicit Intent"
             android:textSize="20dp" />
 
@@ -105,6 +106,50 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
             android:text="Set The Values for Activity 2" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_below="@id/layoutExplicit"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/layoutSharedPref">
+
+        <EditText
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edSharedpref1"
+            android:layout_width="250dp"
+            android:layout_marginTop="24dp"
+            android:hint="Value A"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_centerHorizontal="true"
+            android:id="@+id/edSharedpref2"
+            android:layout_below="@id/edSharedpref1"
+            android:layout_width="250dp"
+            android:layout_marginTop="24dp"
+            android:hint="Value B"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnSharedPrefSave"
+            android:layout_width="128dp"
+            android:layout_below="@id/edSharedpref2"
+            android:text="Save"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnNxtPage"
+            android:layout_width="128dp"
+            android:layout_below="@id/btnSharedPrefSave"
+            android:text="Next Page"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 
