@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,64 +14,99 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textSize="20dp"
         android:text="Implicit and Explicit Sample"
+        android:textSize="20dp"
 
         />
+
     <RelativeLayout
         android:id="@+id/layoutImplicit"
         android:layout_width="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvSample"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_centerHorizontal="true">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvImplicit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textSize="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Implicit Intent"/>
+            android:text="Implicit Intent"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btnImplicit"
             android:layout_width="128dp"
-            android:layout_below="@+id/tvImplicit"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvImplicit"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="10dp"
             android:text="Go to Javat.com " />
 
         <EditText
+            android:id="@+id/edSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edSearch"
+            android:layout_below="@+id/btnImplicit"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/btnImplicit"/>
+            android:hint="Search Link" />
 
         <Button
-            android:layout_width="128dp"
             android:id="@+id/btnSearch"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edSearch"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            android:layout_below="@+id/edSearch"/>
+            android:text="Search" />
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/layoutExplicit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutImplicit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp">
 
+        <TextView
+            android:id="@+id/tvExplicit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Explicit Intent"
+            android:textSize="20dp" />
 
+        <EditText
+            android:id="@+id/edValueA"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="A value" />
 
+        <EditText
+            android:id="@+id/edValueB"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edValueA"
+            android:layout_marginTop="16dp"
+            android:hint="B value" />
 
+        <Button
+            android:id="@+id/btnGetValues"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edValueB"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Set The Values for Activity 2" />
 
-
-
+    </RelativeLayout>
 
 
 </RelativeLayout>

@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnExplicit,btnImplicit,btnSearch;
-    private EditText edSearch;
+    private Button btnExplicit,btnImplicit,btnSearch,btnGetValuesAct2;
+    private EditText edSearch,edValueA,edValueB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSearch = findViewById(R.id.btnSearch);
 //        btnExplicit = findViewById(R.id.btnExplicit);
         btnImplicit = findViewById(R.id.btnImplicit);
+        btnGetValuesAct2 = findViewById(R.id.btnGetValues);
+
+        edValueA = findViewById(R.id.edValueA);
+        edValueB = findViewById(R.id.edValueB);
 
         btnSearch.setOnClickListener(this);
 //        btnExplicit.setOnClickListener(this);
         btnImplicit.setOnClickListener(this);
+        btnGetValuesAct2.setOnClickListener(this);
 
 
     }
@@ -45,7 +50,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(url));
             startActivity(intent);
+        }
+        if (R.id.btnGetValues == view.getId()){
+            String valA = edValueA.getText().toString();
+            String valB = edValueB.getText().toString();
+            Intent i = new Intent(getApplicationContext(), Activity2.class);
+            i.putExtra("ValueA",valA);
+            i.putExtra("ValueB",valB);
 
+            startActivity(i);
         }
     }
 }
