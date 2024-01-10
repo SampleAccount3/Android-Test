@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Backend Sample"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tvTitle"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/edUserName"
+        android:hint="User Name"
+        android:layout_below="@+id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/edEmail"
+        android:hint="Email Address"
+        android:layout_below="@+id/edUserName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:hint="Age"
+        android:layout_width="match_parent"
+        android:id="@+id/edAge"
+        android:layout_below="@+id/edEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="128dp"
+        android:layout_marginTop="24dp"
+        android:text="Submit"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/edAge"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_below="@id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+
+</RelativeLayout>
