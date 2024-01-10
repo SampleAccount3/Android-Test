@@ -12,13 +12,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private EditText edUsername,edEmail,edAge;
+    private Button btnSubmit;
+    Account acc = new Account();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        edUsername = findViewById(R.id.edUserName);
+        edEmail = findViewById(R.id.edEmail);
+        edAge = findViewById(R.id.edAge);
+        btnSubmit = findViewById(R.id.btnSubmit);
+
     }
 
+    @Override
+    public void onClick(View v) {
+        if (R.id.btnSubmit == v.getId()){
+            acc.toString();
+        }
+    }
 }

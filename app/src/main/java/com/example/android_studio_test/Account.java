@@ -12,6 +12,16 @@ public class Account {
 
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "UserName='" + UserName + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Age=" + Age +
+                ", IsActive=" + IsActive +
+                '}';
+    }
+
     public String getUserName() {
         return UserName;
     }
