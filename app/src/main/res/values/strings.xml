@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">Android_Studio_Test</string>
+
+    <string-array name="arBatteriesImgName">
+        <item>0Bat</item>
+        <item>1Bat</item>
+        <item>2Bat</item>
+        <item>3Bat</item>
+        <item>4Bat</item>
+        <item>5Bat</item>
+        <item>6Bat</item>
+        <item>AlertBat</item>
+        <item>Charging0Bat</item>
+        <item>FullBat</item>
+        <item>SaverBat</item>
+        <item>UnknownBat</item>
+    </string-array>
+
+    <string-array name="arBatteriesName">
+        <item>0%</item>
+        <item>10%</item>
+        <item>20%</item>
+        <item>40%</item>
+        <item>50%</item>
+        <item>70%</item>
+        <item>90%</item>
+        <item>Alert!!</item>
+        <item>Charging Full Charge</item>
+        <item>Full Battery</item>
+        <item>Battery Saver</item>
+        <item>Battery Unknown</item>
+    </string-array>
 </resources>
