@@ -1,7 +1,9 @@
 package com.example.android_studio_test;
 
 public class Account {
-    public Account(String userName, String email, int age, boolean isActive) {
+
+    public Account(int ID, String userName, String email, int age, boolean isActive) {
+        this.ID = ID;
         UserName = userName;
         Email = email;
         Age = age;
@@ -9,17 +11,14 @@ public class Account {
     }
 
     public Account() {
-
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "UserName='" + UserName + '\'' +
-                ", Email='" + Email + '\'' +
-                ", Age=" + Age +
-                ", IsActive=" + IsActive +
-                '}';
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getUserName() {
@@ -54,6 +53,18 @@ public class Account {
         IsActive = active;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "ID=" + ID +
+                ", UserName='" + UserName + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Age=" + Age +
+                ", IsActive=" + IsActive +
+                '}';
+    }
+
+    private int ID;
     private String UserName,Email;
     private int Age;
     private boolean IsActive;

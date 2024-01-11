@@ -8,55 +8,87 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Backend Sample"
-        android:layout_marginTop="24dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/tvTitle"
-        />
+        android:layout_marginTop="24dp"
+        android:text="Backend Sample" />
 
     <EditText
-        android:layout_width="match_parent"
         android:id="@+id/edUserName"
-        android:hint="User Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:layout_height="wrap_content"/>
+        android:hint="User Name" />
+
     <EditText
-        android:layout_width="match_parent"
         android:id="@+id/edEmail"
-        android:hint="Email Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/edUserName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:layout_height="wrap_content"/>
+        android:hint="Email Address" />
+
     <EditText
-        android:hint="Age"
-        android:layout_width="match_parent"
         android:id="@+id/edAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/edEmail"
         android:layout_centerHorizontal="true"
+        android:numeric="integer"
         android:layout_marginTop="24dp"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="128dp"
-        android:layout_marginTop="24dp"
-        android:text="Submit"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/edAge"
-        android:layout_height="wrap_content"/>
+        android:hint="Age" />
 
-    <ScrollView
-        android:layout_below="@id/btnSubmit"
+    <Switch
+        android:id="@+id/swIsActive"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_height="match_parent">
+        android:layout_below="@+id/edAge"
+        android:textSize="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"
+        android:text="Active"/>
 
-        <ListView
+    <RelativeLayout
+        android:id="@+id/layoutbtns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/swIsActive"
+        android:layout_marginTop="24dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </ScrollView>
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnViewAll"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="View All" />
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="Submit" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/listViewAccount"
+        android:layout_below="@+id/layoutbtns"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 </RelativeLayout>
