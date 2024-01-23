@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Android_Studio_Test</string>
+    <string-array name="arr_Names">
+        <item>Windows</item>
+        <item>Mac</item>
+        <item>Linux</item>
+    </string-array>
 </resources>
