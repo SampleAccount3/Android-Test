@@ -26,8 +26,5 @@ public class MainActivity extends AppCompatActivity {
             toasts.ToastMakerShort(MainActivity.this,spinnerValue);
         });
 
-
-
-
     }
 }
