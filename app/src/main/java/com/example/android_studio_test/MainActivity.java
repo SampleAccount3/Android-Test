@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btnSendData.setOnClickListener(view -> {
             Toast.makeText(this, "Sample", Toast.LENGTH_SHORT).show();
             DataToPass = edData.getText().toString();
-            intent.putExtra("Value1",DataToPass);
+            intent.putExtra(ActivityNew.MESSAGE_RECEIVED,DataToPass);
             startActivity(intent);
         });
 

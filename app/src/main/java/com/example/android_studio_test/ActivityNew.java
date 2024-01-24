@@ -9,8 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityNew extends AppCompatActivity {
 
-    private TextView getTvDataPassed;
     private TextView tvDataPassed;
+    //Declaring a static final string so the other activities can access it
+    //The Naming convention is MESSAGENAME_RECEIVED
+    public static final String MESSAGE_RECEIVED = "MESSAGE";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
@@ -18,8 +21,12 @@ public class ActivityNew extends AppCompatActivity {
         tvDataPassed = findViewById(R.id.tvNxtActivity);
 
         Bundle bundle = getIntent().getExtras();
+        Intent getIntent = getIntent();
 
-        String value1 = bundle.getString("Value1","");
+        String ValueSample = getIntent.getStringExtra(MESSAGE_RECEIVED);
+        String value1 = bundle.getString(MESSAGE_RECEIVED,"");
+
+        Toast.makeText(this, ValueSample, Toast.LENGTH_SHORT).show();
 
         tvDataPassed.setText(value1);
 
