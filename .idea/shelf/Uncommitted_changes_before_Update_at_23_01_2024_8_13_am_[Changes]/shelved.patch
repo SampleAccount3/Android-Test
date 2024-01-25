@@ -1,0 +1,281 @@
+Index: app/src/main/java/com/example/android_studio_test/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.android_studio_test;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/android_studio_test/MainActivity.java b/app/src/main/java/com/example/android_studio_test/MainActivity.java
+--- a/app/src/main/java/com/example/android_studio_test/MainActivity.java	(revision 444361372382f23171fc3b5711a85ecdef43f49c)
++++ b/app/src/main/java/com/example/android_studio_test/MainActivity.java	(date 1705919984360)
+@@ -3,12 +3,81 @@
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+ import android.os.Bundle;
++import android.os.Handler;
++import android.view.View;
++import android.widget.Button;
++import android.widget.TextView;
++import android.widget.Toast;
++
++public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+ 
+-public class MainActivity extends AppCompatActivity {
++    private Button btnClickMe, btnUpgrade,btnUpgrade2;
++    private TextView tvTotal, tvPrice, tvNumberPerSec, tvPrice2, tvNumberPerSec2;
++
++    myPojo stats = new myPojo();
++    final Handler handler = new Handler();
++    float result = 0;
++
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
++
++        stats.score1 = 0;
++
++        btnClickMe = findViewById(R.id.btnClickMe);
++        btnUpgrade = findViewById(R.id.btnUpgrade);
++        btnUpgrade2 = findViewById(R.id.btnUpgrade2);
++
++
++        tvTotal = findViewById(R.id.tvTotal);
++        tvPrice = findViewById(R.id.tvPrice);
++        tvNumberPerSec = findViewById(R.id.tvNumberPerSec);
++
++        tvPrice2 = findViewById(R.id.tvPrice2);
++        tvNumberPerSec2 = findViewById(R.id.tvNumberPerSec2);
++
++        btnClickMe.setOnClickListener(this);
++        btnUpgrade.setOnClickListener(this);
++        btnUpgrade2.setOnClickListener(this);
++
++        tvPrice.setText(String.valueOf(stats.upgradeCost1));
++        tvPrice2.setText(String.valueOf(stats.upgradeCost2));
++
++
++    }
++
++
++    @Override
++    public void onClick(View view) {
++        if (R.id.btnClickMe == view.getId()) {
++            stats.score1 += stats.totalDps1 + stats.totalDps2;
++            tvTotal.setText(String.valueOf(stats.score1));
++        }
++        if (R.id.btnUpgrade == view.getId()) {
++            if (stats.upgradeCost1 <= stats.score1) {
++                int minus = stats.upgradeCost1;
++                stats.score1 -= minus;
++                stats.totalDps1 *= 2;
++                stats.upgradeCost1 *=4;
++                tvNumberPerSec.setText(String.valueOf(stats.totalDps1));
++                tvPrice.setText(String.valueOf(stats.upgradeCost1));
++                tvTotal.setText(String.valueOf(stats.score1));
++            }else Toast.makeText(this, "Insufficient funds", Toast.LENGTH_SHORT).show();
++        }
++
++        if (R.id.btnUpgrade2 == view.getId()) {
++            if (stats.upgradeCost2 <= stats.score1) {
++                int minus = stats.upgradeCost2;
++                stats.score1 -= minus;
++                stats.totalDps2 *= 4;
++                stats.upgradeCost2 *= 8;
++                tvNumberPerSec2.setText(String.valueOf(stats.totalDps2));
++                tvPrice2.setText(String.valueOf(stats.upgradeCost2));
++                tvTotal.setText(String.valueOf(stats.score1));
++            }else Toast.makeText(this, "Insufficient funds", Toast.LENGTH_SHORT).show();
++        }
++
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Hello World!\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 444361372382f23171fc3b5711a85ecdef43f49c)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1705919796763)
+@@ -1,18 +1,117 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+-    android:layout_height="match_parent"
++    android:layout_height="wrap_content"
++    android:orientation="vertical"
++    android:padding="16dp"
+     tools:context=".MainActivity">
+ 
+-    <TextView
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="Hello World!"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++    <LinearLayout
++        android:id="@+id/layoutTop"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_centerHorizontal="true"
++        android:layout_marginVertical="16dp"
++        android:orientation="vertical">
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center_horizontal"
++            android:layout_marginVertical="16dp"
++            android:text="Button Clicker"
++            android:textSize="24dp" />
++
++        <TextView
++            android:id="@+id/tvTotal"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center_horizontal"
++            android:layout_marginVertical="16dp"
++            android:text="Total: 0s"
++            android:textSize="24dp" />
++
++        <Button
++            android:id="@+id/btnClickMe"
++            android:layout_width="240dp"
++            android:layout_height="120dp"
++            android:layout_marginVertical="16dp"
++            android:text="Click Me !"
++            android:textSize="24dp" />
++
++
++    </LinearLayout>
++
++
++    <LinearLayout
++        android:id="@+id/layoutListView"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@id/layoutTop"
++        android:orientation="horizontal">
++
++        <Button
++            android:id="@+id/btnUpgrade"
++            android:layout_width="128dp"
++            android:layout_height="wrap_content"
++            android:layout_marginHorizontal="16dp"
++            android:text="Upgrade"
++            android:textSize="20dp" />
++
++        <TextView
++            android:id="@+id/tvPrice"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginHorizontal="16dp"
++            android:text="0"
++            android:textSize="20dp" />
++
++        <TextView
++            android:id="@+id/tvNumberPerSec"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginHorizontal="16dp"
++            android:text="0"
++            android:textSize="20dp" />
++
++
++    </LinearLayout>
++
++    <LinearLayout
++        android:id="@+id/layoutListView2"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@id/layoutListView"
++        android:orientation="horizontal">
++
++        <Button
++            android:id="@+id/btnUpgrade2"
++            android:layout_width="128dp"
++            android:layout_height="wrap_content"
++            android:layout_marginHorizontal="16dp"
++            android:text="Upgrade"
++            android:textSize="20dp" />
++
++        <TextView
++            android:id="@+id/tvPrice2"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginHorizontal="16dp"
++            android:text="0"
++            android:textSize="20dp" />
++
++        <TextView
++            android:id="@+id/tvNumberPerSec2"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginHorizontal="16dp"
++            android:text="0"
++            android:textSize="20dp" />
++
++
++    </LinearLayout>
++
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/android_studio_test/MyRunnable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/android_studio_test/MyRunnable.java b/app/src/main/java/com/example/android_studio_test/MyRunnable.java
+new file mode 100644
+--- /dev/null	(date 1705916103231)
++++ b/app/src/main/java/com/example/android_studio_test/MyRunnable.java	(date 1705916103231)
+@@ -0,0 +1,15 @@
++package com.example.android_studio_test;
++
++public class MyRunnable implements Runnable{
++    @Override
++    public void run() {
++        while(true){
++            try {
++                Thread.sleep(1000);
++            } catch (InterruptedException e) {
++                throw new RuntimeException(e);
++            }
++        }
++
++    }
++}
+Index: app/src/main/java/com/example/android_studio_test/myPojo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/android_studio_test/myPojo.java b/app/src/main/java/com/example/android_studio_test/myPojo.java
+new file mode 100644
+--- /dev/null	(date 1705919336905)
++++ b/app/src/main/java/com/example/android_studio_test/myPojo.java	(date 1705919336905)
+@@ -0,0 +1,11 @@
++package com.example.android_studio_test;
++
++public class myPojo {
++
++    public int score1;
++    public int totalDps1 = 1;
++    public int upgradeCost1 = 1;
++
++    public int totalDps2 = 2;
++    public int upgradeCost2 = 2;
++}
