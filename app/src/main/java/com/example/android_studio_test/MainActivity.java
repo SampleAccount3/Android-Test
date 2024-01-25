@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState != null){
+            Score = savedInstanceState.getDouble("Score");
+            upgradeIncrement = savedInstanceState.getDouble("upgradeIncrement");
+            ScoreIncrement = savedInstanceState.getDouble("ScoreIncrement");
+            price = savedInstanceState.getDouble("price");
+        }
+
         Declarations();
         tvScore = findViewById(R.id.tvScore);
         tvDescription1 = findViewById(R.id.tvDescription);
@@ -41,11 +48,21 @@ public class MainActivity extends AppCompatActivity {
                 tvScore.setText( String.valueOf(Math.round(Score)));
                 upgradeIncrement +=ScoreIncrement;
                 tvTitle1.setText("Total DPC: "+ String.valueOf(Math.round(ScoreIncrement)));
-                price *= 2;
+                price += price * 1.8;
                 Score -= price;
                 tvDescription1.setText(String.valueOf(Math.round(price)));
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle saveInstanceState) {
+
+        super.onSaveInstanceState(saveInstanceState);
+        saveInstanceState.putDouble("Score", Score);
+        saveInstanceState.putDouble("upgradeIncrement", upgradeIncrement);
+        saveInstanceState.putDouble("ScoreIncrement", ScoreIncrement);
+        saveInstanceState.putDouble("price", price);
     }
 
     private void Declarations(){
@@ -68,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                     Score += upgradeIncrement;
                     tvScore.setText(String.valueOf(Math.round(Score)));
                     handler.postDelayed(this,1000);
-
             }
         });
     }
