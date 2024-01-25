@@ -26,15 +26,9 @@ public class ActivityNew extends AppCompatActivity {
         String ValueSample = getIntent.getStringExtra(MESSAGE_RECEIVED);
         String value1 = bundle.getString(MESSAGE_RECEIVED,"");
 
-        Toast.makeText(this, ValueSample, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ValueSample, Toast.LENGTH_SHORT).show();
 
-        tvDataPassed.setText(value1);
-
-
-
-
-
-
+        tvDataPassed.setText(ValueSample);
 
     }
 
